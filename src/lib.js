@@ -38,22 +38,22 @@ for (var i=0, k=aout.length; i<k; ++i)
 lxiv.encode = function(src, dst) {
     var b, t;
     while ((b = src()) !== null) {
-        dst(aout[(b>>2)&0x3f]),
-            t = (b&0x3)<<4;
+        dst(aout[(b>>2)&0x3f]);
+        t = (b&0x3)<<4;
         if ((b = src()) !== null) {
             t |= (b>>4)&0xf;
             dst(aout[(t|((b>>4)&0xf))&0x3f]);
             t = (b&0xf)<<2;
             if ((b = src()) !== null)
                 dst(aout[(t|((b>>6)&0x3))&0x3f]),
-                    dst(aout[b&0x3f]);
+                dst(aout[b&0x3f]);
             else
                 dst(aout[t&0x3f]),
-                    dst(61);
+                dst(61);
         } else
             dst(aout[t&0x3f]),
-                dst(61),
-                dst(61);
+            dst(61),
+            dst(61);
     }
 };
 
