@@ -1,7 +1,7 @@
 {
     "name": "lxiv",
     "author": "Daniel Wirtz <dcode@dcode.io>",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "A compact library to encode and decode base64 data.",
     "main": "index.js",
     "repository": {

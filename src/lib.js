@@ -73,12 +73,10 @@ lxiv.decode = function(src, dst) {
     }
     while ((c = src()) !== null) {
         t1 = ain[c];
-        if (typeof t1 === 'undefined')
-            if (c === 61) break; else fail(c);
+        if (typeof t1 === 'undefined') fail(c);
         if ((c = src()) !== null) {
             t2 = ain[c];
-            if (typeof t2 === 'undefined')
-                if (c === 61) break; else fail(c);
+            if (typeof t2 === 'undefined') fail(c);
             dst((t1<<2)>>>0|(t2&0x30)>>4);
             if ((c = src()) !== null) {
                 t1 = ain[c];
