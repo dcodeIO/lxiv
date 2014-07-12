@@ -1,0 +1,31 @@
+{
+    "name": "lxiv",
+    "author": "Daniel Wirtz <dcode@dcode.io>",
+    "version": "0.1.0",
+    "description": "A compact library to encode and decode base64 data.",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dcodeIO/lxiv.git"
+    },
+    "bugs": {
+        "url": "https://github.com/dcodeIO/lxiv/issues"
+    },
+    "keywords": ["encoding", "base64"],
+    "dependencies": {},
+    "devDependencies": {
+        "testjs": "~1",
+        "metascript": "~0",
+        "closurecompiler": "~1"
+    },
+    "license": "Apache-2.0",
+    "engines": {
+        "node": ">=0.8"
+    },
+    "scripts": {
+        "build": "node node_modules/metascript/bin/metascript src/lxiv.js > dist/lxiv.js && node node_modules/metascript/bin/metascript src/lxiv-embeddable.js > dist/lxiv-embeddable.js",
+        "compile": "ccjs dist/lxiv.js --compilation_level=ADVANCED_OPTIMIZATIONS > dist/lxiv.min.js",
+        "test": "node tests/suite.js",
+        "make": "npm run-script build && npm run-script compile && npm test"
+    }
+}
